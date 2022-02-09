@@ -11,13 +11,14 @@ class Grid
     private:
         uint8_t rows;
         uint8_t cols;
-        char* grid;
+        uint8_t* grid;
         
     public:
         Grid(void);
         Grid(uint8_t c, uint8_t r);
         uint8_t getCols(void);
         uint8_t getRows(void);
+        uint8_t getBlock(uint8_t col, uint8_t row);
         ~Grid();
 };
 
