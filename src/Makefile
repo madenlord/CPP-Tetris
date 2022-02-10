@@ -17,13 +17,11 @@ DEPS	 := $(SRCS:%.cpp=$(DEP_DIR)/%.d)
 # Libraries variables
 SFML_DIR = $(LIB_DIR)/SFML-2.5.1
 SFML_INC = $(SFML_DIR)/include
-LIBS     = -L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system
+LIBS     = -L$(SFML_DIR)/bin -lsfml-graphics-2 -lsfml-window-2 -lsfml-system-2
 
 # Compilation flags and options
 CFLAGS   = -Wall -I$(INC_DIR) -I$(SFML_INC)
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
-SFML_DIR = $(LIB_DIR)/SFML-2.5.1
-LIBS     = -L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system
 
 $(TARGET) : $(OBJS)
 	g++ $(CFLAGS) $(OBJS) -o $(TARGET) $(LIBS)
