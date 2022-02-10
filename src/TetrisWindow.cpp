@@ -17,7 +17,7 @@ namespace tw
     void windowInit(sf::RenderWindow* window, uint16_t width, uint16_t height, 
                     uint8_t blkSize, uint8_t blkSeparation)
     {
-        uint8_t gridC, gridR;
+        uint8_t gridC, gridR, gridW, gridH;
 
         pwindow = window;
         window->create(sf::VideoMode(width, height), "Tetris");
@@ -28,7 +28,10 @@ namespace tw
 
         gridC = tetrisGrid.getCols();
         gridR = tetrisGrid.getRows();
-        gridPosition.x = blockSize * gridC + blockSeparation * (gridC - 1);
-        gridPosition.y = blockSize * gridR + blockSeparation * (gridR - 1); 
+        gridW = blockSize * gridC + blockSeparation * (gridC - 1);
+        gridH = blockSize * gridR + blockSeparation * (gridR - 1); 
+
+        gridPosition.x = (width - gridW) / 2; 
+        gridPosition.y = (height - gridH) / 2;
     }
 }
