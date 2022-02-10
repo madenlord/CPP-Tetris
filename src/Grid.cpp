@@ -28,6 +28,22 @@ Grid::Grid(uint8_t c, uint8_t r)
 
 
 
+void Grid::create(uint8_t c, uint8_t r)
+{
+    delete grid;
+    uint8_t i;
+
+    cols = c;
+    rows = r;
+    grid = new uint8_t[cols * rows];
+
+    for(i = 0; i < (cols * rows); i++)
+        grid[i] = 0;
+
+}
+
+
+
 uint8_t Grid::getCols()
 {
     return cols;
