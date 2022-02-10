@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include "TetrisWindow.hpp"
 
 int main()
 {
     // Creates a window for 2D games
-    sf::RenderWindow window(sf::VideoMode(800,1000), "Tetris");
-    window.setFramerateLimit(60);
+    sf::RenderWindow window;
+    tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 20, 4);
 
     // Run the program as long as the window is open
     while(window.isOpen())
