@@ -6,7 +6,7 @@ int main()
 {
     // Creates a window for 2D games
     sf::RenderWindow window;
-    tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2u(150, 300));
+    tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2u(180, 40));
 
     // Run the program as long as the window is open
     while(window.isOpen())
