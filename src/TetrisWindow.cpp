@@ -15,10 +15,8 @@ static sf::Color blockColor[] = {
 namespace tw
 {
     void windowInit(sf::RenderWindow* window, uint16_t width, uint16_t height, 
-                    uint8_t blkSize, uint8_t blkSeparation)
+                    uint8_t blkSize, uint8_t blkSeparation, sf::Vector2u gridPos)
     {
-        uint8_t gridC, gridR, gridW, gridH;
-
         pwindow = window;
         window->create(sf::VideoMode(width, height), "Tetris");
         window->setFramerateLimit(60);
@@ -26,12 +24,33 @@ namespace tw
         blockSize        = blkSize;
         blockSeparation  = blkSeparation;
 
-        gridC = tetrisGrid.getCols();
-        gridR = tetrisGrid.getRows();
-        gridW = blockSize * gridC + blockSeparation * (gridC - 1);
-        gridH = blockSize * gridR + blockSeparation * (gridR - 1); 
+        gridPosition.x = gridPos.x;
+        gridPosition.y = gridPos.y;
+    }
 
-        gridPosition.x = (width - gridW) / 2; 
-        gridPosition.y = (height - gridH) / 2;
+
+
+    void drawGrid()
+    {
+        uint8_t i, j, rows, cols, blockIndex;
+        sf::Vector2f actualPos(gridPosition.x, gridPosition.y);
+        sf::RectangleShape block(sf::Vector2f(blockSize, blockSize));
+
+        rows = tetrisGrid.getRows();
+        cols = tetrisGrid.getCols();
+        for(i = 0; i < rows; i++)
+        {
+            for(j = 0; j < cols; j++)
+            {   
+                blockIndex = tetrisGrid.getBlock(j, i);
+                block.setPosition(actualPos);
+                block.setFillColor(blockColor[blockIndex]);
+                pwindow->draw(block);
+
+                actualPos.x += blockSize + blockSeparation;
+            }
+            actualPos.x = gridPosition.x;
+            actualPos.y += blockSize + blockSeparation;
+        }
     }
 }
