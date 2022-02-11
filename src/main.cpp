@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Vector2.hpp>
 #include "TetrisWindow.hpp"
 
 int main()
 {
     // Creates a window for 2D games
     sf::RenderWindow window;
-    tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 20, 4);
+    tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2u(150, 300));
 
     // Run the program as long as the window is open
     while(window.isOpen())
@@ -23,7 +24,7 @@ int main()
         window.clear();
 
         // Draw everything here...
-        // window.draw(...);
+        tw::drawGrid();
 
         // End the current frame
         window.display();
