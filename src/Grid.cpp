@@ -4,12 +4,12 @@ Grid::Grid()
 {
     uint8_t i;
 
-    cols = GRID_COLS;
-    rows = GRID_ROWS;
-    grid = new uint8_t[cols * rows];
+    _cols = GRID_COLS;
+    _rows = GRID_ROWS;
+    _grid = new uint8_t[_cols * _rows];
 
-    for(i = 0; i < (cols * rows); i++)
-        grid[i] = 0;
+    for(i = 0; i < (_cols * _rows); i++)
+        _grid[i] = 0;
 }
 
 
@@ -18,27 +18,27 @@ Grid::Grid(uint8_t c, uint8_t r)
 {
     uint8_t i;
 
-    cols = c;
-    rows = r;
-    grid = new uint8_t[cols * rows];
+    _cols = c;
+    _rows = r;
+    _grid = new uint8_t[_cols * _rows];
 
-    for(i = 0; i < (cols * rows); i++)
-        grid[i] = 0;
+    for(i = 0; i < (_cols * _rows); i++)
+        _grid[i] = 0;
 }
 
 
 
 void Grid::create(uint8_t c, uint8_t r)
 {
-    delete grid;
+    delete _grid;
     uint8_t i;
 
-    cols = c;
-    rows = r;
-    grid = new uint8_t[cols * rows];
+    _cols = c;
+    _rows = r;
+    _grid = new uint8_t[_cols * _rows];
 
-    for(i = 0; i < (cols * rows); i++)
-        grid[i] = 0;
+    for(i = 0; i < (_cols * _rows); i++)
+        _grid[i] = 0;
 
 }
 
@@ -46,26 +46,26 @@ void Grid::create(uint8_t c, uint8_t r)
 
 uint8_t Grid::getCols()
 {
-    return cols;
+    return _cols;
 }
 
 
 
 uint8_t Grid::getRows()
 {
-    return rows;
+    return _rows;
 }
 
 
 
 uint8_t Grid::getBlock(uint8_t col, uint8_t row)
 {
-    return grid[(row * cols) + col];
+    return _grid[(row * _cols) + col];
 }
 
 
 
 Grid::~Grid()
 {
-    delete grid;
+    delete _grid;
 }

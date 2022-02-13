@@ -9,9 +9,9 @@
 class Grid
 {
     private:
-        uint8_t rows;
-        uint8_t cols;
-        uint8_t* grid;
+        uint8_t _rows;
+        uint8_t _cols;
+        uint8_t* _grid;
         
     public:
         Grid(void);
