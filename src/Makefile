@@ -7,7 +7,7 @@ LIB_DIR  = ../libraries
 SRC_DIR  = .
 
 # Target program
-TARGET   = $(BIN_DIR)/sfml-app
+TARGET   = $(BIN_DIR)/Tetris
 
 # All source, object and dependency files
 SRCS     := $(wildcard *.cpp)
