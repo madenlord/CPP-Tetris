@@ -1,9 +1,7 @@
 #include <SFML/System/Vector2.hpp>
-#include "Grid.hpp"
 #include "TetrisWindow.hpp"
 
 static sf::RenderWindow* pwindow;
-static Grid tetrisGrid;
 static uint8_t blockSize;
 static uint8_t blockSeparation;
 static sf::Vector2u gridPosition;
@@ -30,19 +28,19 @@ namespace tw
 
 
 
-    void drawGrid()
+    void drawGrid(Grid* tetrisGrid)
     {
         uint8_t i, j, rows, cols, blockIndex;
         sf::Vector2f actualPos(gridPosition.x, gridPosition.y);
         sf::RectangleShape block(sf::Vector2f(blockSize, blockSize));
 
-        rows = tetrisGrid.getRows();
-        cols = tetrisGrid.getCols();
+        rows = tetrisGrid->getRows();
+        cols = tetrisGrid->getCols();
         for(i = 0; i < rows; i++)
         {
             for(j = 0; j < cols; j++)
             {   
-                blockIndex = tetrisGrid.getBlock(j, i);
+                blockIndex = tetrisGrid->getBlock(j, i);
                 block.setPosition(actualPos);
                 block.setFillColor(blockColor[blockIndex]);
                 pwindow->draw(block);
