@@ -9,7 +9,10 @@
 //------------------------------------------------------------
 Tetromino::Tetromino()
 {
-    
+    _currentPos.x = 0;
+    _currentPos.y = 0;
+    _blocks       = NULL;
+    _size         = 0;    
 }
 
 
