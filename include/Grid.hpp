@@ -20,6 +20,8 @@ class Grid
         uint8_t getCols(void);
         uint8_t getRows(void);
         uint8_t getBlock(uint8_t col, uint8_t row);
+        void logGrid(void);
+        void logGridData(void);
         ~Grid();
 };
 

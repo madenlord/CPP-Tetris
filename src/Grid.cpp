@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Grid.hpp"
 
 Grid::Grid()
@@ -61,6 +62,43 @@ uint8_t Grid::getRows()
 uint8_t Grid::getBlock(uint8_t col, uint8_t row)
 {
     return _grid[(row * _cols) + col];
+}
+
+
+
+void Grid::logGrid()
+{
+    uint8_t i, j, blockIndex;
+
+    for(i = 0; i < _rows; i++)
+    {
+        std::cout << "\n# ";
+        for(j = 0; j < _cols; j++)
+        {
+            blockIndex = _grid[i * _cols + j];
+            if(blockIndex != 0)
+                std::cout << unsigned(blockIndex); 
+            std::cout << " ";
+        }
+        std::cout << "#";
+    }
+
+    std::cout << "\n";
+    for(j = 0; j < _cols; j++)
+    {
+        std::cout << "#";
+    }
+}
+
+
+
+void Grid::logGridData()
+{
+    std::cout << "\nGrid rows: " << unsigned(_rows);
+    std::cout << "\nGrid colums: " << unsigned(_cols);
+
+    std::cout << "\nGrid status: ";
+    logGrid();
 }
 
 
