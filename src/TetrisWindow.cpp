@@ -70,9 +70,12 @@ namespace tw
             for(j = 0; j < tetrominoSize; j++)
             {
                 blockIndex = tetromino->getBlock(i, j);
-                block.setPosition(actualPos);
-                block.setFillColor(blockColor[blockIndex]);
-                pwindow->draw(block);
+                if(blockIndex != 0)
+                {
+                    block.setPosition(actualPos);
+                    block.setFillColor(blockColor[blockIndex]);
+                    pwindow->draw(block);
+                }
 
                 actualPos.x += blockSize + blockSeparation;
             }
