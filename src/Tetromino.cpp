@@ -154,6 +154,30 @@ void Tetromino::rotateCW()
 
 
 
+void Tetromino::rotateNCW()
+{
+    uint8_t rotatedBlocks[_size*_size]; 
+    uint8_t i, j, r, c;
+
+    r = _size - 1;
+    c = 0;
+    for(i = 0; i < _size; i++)
+    {
+        for(j = 0; j < _size; j++)
+        {
+            rotatedBlocks[r * _size + c] = _blocks[i * _size + j];
+            r--;
+        }
+        r = _size - 1;
+        c++;
+    }
+
+    std::copy(rotatedBlocks, rotatedBlocks+(_size*_size), _blocks);
+   
+}
+
+
+
 
 //------------------------------------------------------------
 //------     Extra functions for object handling    ----------
