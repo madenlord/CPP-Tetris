@@ -58,9 +58,11 @@ namespace tw
     {
         uint8_t i, j, tetrominoSize, blockIndex;
         sf::Vector2u tetrominoPos = tetromino->getPosition();
-        sf::Vector2f actualPos(gridPosition.x+tetrominoPos.x, 
-                                gridPosition.y+tetrominoPos.y);
+        sf::Vector2f actualPos;
         sf::RectangleShape block(sf::Vector2f(blockSize, blockSize));
+
+        actualPos.x = gridPosition.x + (tetrominoPos.y * (blockSize + blockSeparation));
+        actualPos.y = gridPosition.y + (tetrominoPos.x * (blockSize + blockSeparation));
 
         tetrominoSize = tetromino->getSize();
         for(i = 0; i < tetrominoSize; i++)
@@ -74,7 +76,7 @@ namespace tw
 
                 actualPos.x += blockSize + blockSeparation;
             }
-            actualPos.x = gridPosition.x + tetrominoPos.x;
+            actualPos.x = gridPosition.x + (tetrominoPos.y * (blockSize + blockSeparation));
             actualPos.y += blockSize + blockSeparation;
         }
     }
