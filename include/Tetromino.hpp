@@ -37,6 +37,8 @@ class Tetromino
         void drop(void);
 
         // Extra functions for object handling
+        void logTetrominoBlocks(void);
+        void logTetrominoData(void);
         Tetromino clone(void);
         ~Tetromino(void);
 };

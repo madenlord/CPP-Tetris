@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 #include "Tetromino.hpp"
 
 
@@ -134,6 +135,34 @@ void Tetromino::moveDown()
 //------------------------------------------------------------
 //------     Extra functions for object handling    ----------
 //------------------------------------------------------------
+void Tetromino::logTetrominoBlocks()
+{
+    uint8_t i, j;
+
+    for(i = 0; i < _size; i++)
+    {
+        for(j = 0; j < _size; j++)
+        {
+            std::cout << unsigned(_blocks[i * _size + j]);
+        }
+        std::cout << "\n";
+    }
+}
+
+
+
+void Tetromino::logTetrominoData()
+{
+    std::cout << "\nCurrent grid position: (" << unsigned(_currentPos.x) << ", ";
+    std::cout << unsigned(_currentPos.y) << ")";
+
+    std::cout << "\nSize of the block: " << unsigned(_size);
+    std::cout << "\nTetromino layout: \n";
+    logTetrominoBlocks();
+}
+
+
+
 Tetromino Tetromino::clone()
 {
     Tetromino clone(_blocks, _size, _currentPos);
