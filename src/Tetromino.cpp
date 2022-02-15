@@ -109,6 +109,31 @@ void Tetromino::setPosition(uint8_t x, uint8_t y)
 //------------------------------------------------------------
 //------     Extra functions for object handling    ----------
 //------------------------------------------------------------
+void Tetromino::moveLeft()
+{
+    _currentPos.y--;
+}
+
+
+
+void Tetromino::moveRight()
+{
+    _currentPos.y++;
+}
+
+
+
+void Tetromino::moveDown()
+{
+    _currentPos.x++;
+}
+
+
+
+
+//------------------------------------------------------------
+//------     Extra functions for object handling    ----------
+//------------------------------------------------------------
 Tetromino Tetromino::clone()
 {
     Tetromino clone(_blocks, _size, _currentPos);
