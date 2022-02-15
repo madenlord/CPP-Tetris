@@ -2,7 +2,7 @@
 #define TETROMINOS_H_
 
 #include <stdint.h>
-#include "include/Tetromino.hpp"
+#include "Tetromino.hpp"
 
 static const uint8_t OBlock[] =
 {

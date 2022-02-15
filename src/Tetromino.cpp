@@ -193,7 +193,7 @@ void Tetromino::logTetrominoBlocks()
     {
         for(j = 0; j < _size; j++)
         {
-            std::cout << unsigned(_blocks[i * _size + j]);
+            std::cout << unsigned(_blocks[i * _size + j]) << " ";
         }
         std::cout << "\n";
     }
