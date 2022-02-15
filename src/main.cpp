@@ -7,6 +7,7 @@ int main()
     // Creates a window for 2D games
     sf::RenderWindow window;
     tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2u(180, 40));
+    Grid tetrisGrid;
 
     // Run the program as long as the window is open
     while(window.isOpen())
@@ -24,7 +25,7 @@ int main()
         window.clear();
 
         // Draw everything here...
-        tw::drawGrid();
+        tw::drawGrid(&tetrisGrid);
 
         // End the current frame
         window.display();
