@@ -213,9 +213,10 @@ void Tetromino::logTetrominoData()
 
 
 
-Tetromino Tetromino::clone()
+Tetromino* Tetromino::clone()
 {
-    Tetromino clone(_blocks, _size, _currentPos);
+    Tetromino* clone = new Tetromino();
+    clone->create(_blocks, _size, _currentPos);
 
     return clone;
 }
