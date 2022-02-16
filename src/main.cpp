@@ -1,13 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
-#include "TetrisWindow.hpp"
+#include "Game.hpp"
 
 int main()
 {
     // Creates a window for 2D games
     sf::RenderWindow window;
-    tw::windowInit(&window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2u(180, 40));
-    Grid tetrisGrid;
+    iniGame(&window);
 
     // Run the program as long as the window is open
     while(window.isOpen())
@@ -16,6 +15,12 @@ int main()
         sf::Event event;
         while(window.pollEvent(event))
         {
+            // Keyboard events handling
+            if(event.type == sf::Event::KeyPressed)
+            {
+                processKey(event.key.code);
+            }
+
             // "Close requested" event: we close the window
             if(event.type == sf::Event::Closed)
                 window.close();
@@ -25,7 +30,7 @@ int main()
         window.clear();
 
         // Draw everything here...
-        tw::drawGrid(&tetrisGrid);
+        drawGameState();
 
         // End the current frame
         window.display();
