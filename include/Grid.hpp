@@ -16,14 +16,21 @@ class Grid
         uint8_t* _grid;
         
     public:
+        // Constructors
         Grid(void);
         Grid(uint8_t c, uint8_t r);
         void create(uint8_t c, uint8_t r);
+        
+        // Getters & Setters 
         uint8_t getCols(void);
         uint8_t getRows(void);
         uint8_t getBlock(uint8_t col, uint8_t row);
+
+        // Grid functionality
         uint8_t canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector);
         void integrateTetromino(Tetromino* tetromino);
+        
+        // Extra functions for object handling
         void logGrid(void);
         void logGridData(void);
         ~Grid();
