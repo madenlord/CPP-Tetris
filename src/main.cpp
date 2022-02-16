@@ -17,9 +17,7 @@ int main()
         {
             // Keyboard events handling
             if(event.type == sf::Event::KeyPressed)
-            {
                 processKey(event.key.code);
-            }
 
             // "Close requested" event: we close the window
             if(event.type == sf::Event::Closed)

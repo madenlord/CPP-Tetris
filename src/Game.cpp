@@ -37,19 +37,21 @@ void generateTetromino()
 
 void processKey(sf::Keyboard::Key keyCode)
 {
-    currentTetromino->logTetrominoData();
     switch(keyCode)
     {
         case sf::Keyboard::A:
-            currentTetromino->moveLeft();
+            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0, -1)))
+                currentTetromino->moveLeft();
             break;
 
         case sf::Keyboard::D:
-            currentTetromino->moveRight();
+            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0, 1)))
+                currentTetromino->moveRight();
             break;
 
         case sf::Keyboard::S:
-            currentTetromino->moveDown();
+            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(1, 0)))
+                currentTetromino->moveDown();
             break;
 
         case sf::Keyboard::E:
@@ -63,7 +65,6 @@ void processKey(sf::Keyboard::Key keyCode)
         default:
             break;
     }
-    currentTetromino->logTetrominoData();
 }
 
 
@@ -74,7 +75,8 @@ void checkTetrominoDrop()
     
     if(elapsedTime.asMilliseconds() >= 1000)
     {
-        currentTetromino->moveDown();
+        if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(1, 0)))
+            currentTetromino->moveDown();
         timer.restart();
     }
 }

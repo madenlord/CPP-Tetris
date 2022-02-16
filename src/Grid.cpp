@@ -66,6 +66,38 @@ uint8_t Grid::getBlock(uint8_t col, uint8_t row)
 
 
 
+uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector)
+{
+    uint8_t tetrominoPosX = tetromino->getPosition().x + movVector.x;
+    uint8_t tetrominoPosY = tetromino->getPosition().y + movVector.y;
+    uint8_t tetrominoSize = tetromino->getSize();
+    uint8_t i, j, x, y;
+
+    x = 0;
+    for(i = tetrominoPosX; i < (tetrominoPosX + tetrominoSize); i++)
+    {
+        y = 0;
+        for(j = tetrominoPosY; j < (tetrominoPosY + tetrominoSize); j++)
+        {
+            if(tetromino->getBlock(x, y) != 0)
+            {
+                if( (i < 0) || (i >= _rows) )
+                    return 0;
+                if( (j < 0) || (j >= _cols) )
+                    return 0;
+                if(_grid[i * _cols + j] != 0)
+                    return 0;
+            }
+            y++;
+        }
+        x++;
+    }
+
+    return 1;
+}
+
+
+
 void Grid::logGrid()
 {
     uint8_t i, j, blockIndex;

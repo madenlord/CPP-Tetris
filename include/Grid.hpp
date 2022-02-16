@@ -2,6 +2,8 @@
 #define GRID_H_
 
 #include <cstdint>
+#include <SFML/System/Vector2.hpp>
+#include "Tetromino.hpp"
 
 #define GRID_COLS   10
 #define GRID_ROWS   20
@@ -20,6 +22,7 @@ class Grid
         uint8_t getCols(void);
         uint8_t getRows(void);
         uint8_t getBlock(uint8_t col, uint8_t row);
+        uint8_t canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector);
         void logGrid(void);
         void logGridData(void);
         ~Grid();
