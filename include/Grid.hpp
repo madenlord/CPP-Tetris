@@ -23,6 +23,7 @@ class Grid
         uint8_t getRows(void);
         uint8_t getBlock(uint8_t col, uint8_t row);
         uint8_t canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector);
+        void integrateTetromino(Tetromino* tetromino);
         void logGrid(void);
         void logGridData(void);
         ~Grid();

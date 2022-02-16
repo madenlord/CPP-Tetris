@@ -52,6 +52,11 @@ void processKey(sf::Keyboard::Key keyCode)
         case sf::Keyboard::S:
             if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(1, 0)))
                 currentTetromino->moveDown();
+            else
+            {
+                tetrisGrid->integrateTetromino(currentTetromino);
+                generateTetromino();
+            }
             break;
 
         case sf::Keyboard::E:
@@ -77,6 +82,11 @@ void checkTetrominoDrop()
     {
         if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(1, 0)))
             currentTetromino->moveDown();
+        else
+        {
+            tetrisGrid->integrateTetromino(currentTetromino);
+            generateTetromino();
+        }
         timer.restart();
     }
 }

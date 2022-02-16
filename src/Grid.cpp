@@ -98,6 +98,31 @@ uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector)
 
 
 
+void Grid::integrateTetromino(Tetromino* tetromino)
+{
+    uint8_t tetrominoPosX = tetromino->getPosition().x;
+    uint8_t tetrominoPosY = tetromino->getPosition().y;
+    uint8_t tetrominoSize = tetromino->getSize();
+    uint8_t i, j, x, y, block;
+
+    x = 0;
+    for(i = tetrominoPosX; i < (tetrominoPosX + tetrominoSize); i++)
+    {
+        y = 0;
+        for(j = tetrominoPosY; j < (tetrominoPosY + tetrominoSize); j++)
+        {
+            block = tetromino->getBlock(x, y);
+            if(block != 0)
+                _grid[i * _cols + j] = block;
+
+            y++;
+        }
+        x++;
+    }
+}
+
+
+
 void Grid::logGrid()
 {
     uint8_t i, j, blockIndex;
