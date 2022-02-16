@@ -111,7 +111,7 @@ void Tetromino::setPosition(uint8_t x, uint8_t y)
 
 
 //------------------------------------------------------------
-//------     Extra functions for object handling    ----------
+//------------     Tetromino functionality    ----------------
 //------------------------------------------------------------
 void Tetromino::moveLeft()
 {

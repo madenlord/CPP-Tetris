@@ -1,6 +1,11 @@
 #include <iostream>
 #include "Grid.hpp"
 
+
+
+//------------------------------------------------------------
+//------------------     Constructors    ---------------------
+//------------------------------------------------------------
 Grid::Grid()
 {
     uint8_t i;
@@ -45,6 +50,10 @@ void Grid::create(uint8_t c, uint8_t r)
 
 
 
+
+//------------------------------------------------------------
+//---------------     Getters & Setters    -------------------
+//------------------------------------------------------------
 uint8_t Grid::getCols()
 {
     return _cols;
@@ -66,6 +75,10 @@ uint8_t Grid::getBlock(uint8_t col, uint8_t row)
 
 
 
+
+//------------------------------------------------------------
+//---------------     Grid functionality    ------------------
+//------------------------------------------------------------
 uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector)
 {
     uint8_t tetrominoPosX = tetromino->getPosition().x + movVector.x;
@@ -123,6 +136,10 @@ void Grid::integrateTetromino(Tetromino* tetromino)
 
 
 
+
+//------------------------------------------------------------
+//------     Extra functions for object handling    ----------
+//------------------------------------------------------------
 void Grid::logGrid()
 {
     uint8_t i, j, blockIndex;
