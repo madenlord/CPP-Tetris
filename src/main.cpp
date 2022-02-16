@@ -26,6 +26,10 @@ int main()
                 window.close();
         }
 
+        // Checks if a second has already ellapsed. If it has, the current Tetromino
+        // moves down.
+        checkTetrominoDrop();
+
         // Clear the window with black color
         window.clear();
 

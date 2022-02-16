@@ -9,6 +9,7 @@
 
 Grid* tetrisGrid = NULL;
 Tetromino* currentTetromino = NULL;
+sf::Clock timer;
 
 
 void iniGame(sf::RenderWindow* window)
@@ -63,6 +64,19 @@ void processKey(sf::Keyboard::Key keyCode)
             break;
     }
     currentTetromino->logTetrominoData();
+}
+
+
+
+void checkTetrominoDrop()
+{
+    sf::Time elapsedTime = timer.getElapsedTime();
+    
+    if(elapsedTime.asMilliseconds() >= 1000)
+    {
+        currentTetromino->moveDown();
+        timer.restart();
+    }
 }
 
 
