@@ -29,7 +29,9 @@ class Grid
         // Grid functionality
         uint8_t canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector);
         void integrateTetromino(Tetromino* tetromino);
+        uint8_t isRowEmpty(uint8_t row);
         uint8_t isRowComplete(uint8_t row);
+        void dropRow(uint8_t row, uint8_t height);
         
         // Extra functions for object handling
         void logGrid(void);
