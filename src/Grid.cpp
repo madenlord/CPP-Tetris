@@ -166,7 +166,6 @@ uint8_t Grid::isRowComplete(uint8_t row)
 
 
 
-
 void Grid::dropRow(uint8_t row, uint8_t height)
 {
     uint8_t j;
@@ -174,6 +173,7 @@ void Grid::dropRow(uint8_t row, uint8_t height)
     for(j = 0; j < _cols; j++)
     {
         _grid[(row + height) * _cols + j] = _grid[row * _cols + j];
+        _grid[row * _cols + j] = 0;
     }
 }
 
