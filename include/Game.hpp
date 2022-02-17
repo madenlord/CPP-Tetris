@@ -8,6 +8,7 @@ void iniGame(sf::RenderWindow* window);
 void generateTetromino(void);
 void processKey(sf::Keyboard::Key keyCode);
 void checkTetrominoDrop(void);
+void clearRows(void);
 void drawGameState(void);
 
 #endif

@@ -54,6 +54,7 @@ void processKey(sf::Keyboard::Key keyCode)
             else
             {
                 tetrisGrid->integrateTetromino(currentTetromino);
+                clearRows();
                 generateTetromino();
             }
             break;
@@ -88,9 +89,38 @@ void checkTetrominoDrop()
         else
         {
             tetrisGrid->integrateTetromino(currentTetromino);
+            clearRows();
             generateTetromino();
         }
         timer.restart();
+    }
+}
+
+
+
+void clearRows()
+{
+    int8_t cleared, row;
+
+    row = currentTetromino->getPosition().x + currentTetromino->getSize();
+    if(row > tetrisGrid->getRows())
+        row = tetrisGrid->getRows();
+
+    cleared = 0;
+    while(row >= 0 && !tetrisGrid->isRowEmpty(row))
+    {
+        if(tetrisGrid->isRowComplete(row))
+        {
+            tetrisGrid->clearRow(row);
+            cleared++;
+        }
+        else
+        {
+            if(cleared > 0)
+                tetrisGrid->dropRow(row, cleared);
+        }
+
+        row--;
     }
 }
 
