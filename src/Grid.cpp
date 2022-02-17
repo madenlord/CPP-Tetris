@@ -136,6 +136,21 @@ void Grid::integrateTetromino(Tetromino* tetromino)
 
 
 
+uint8_t Grid::isRowComplete(uint8_t row)
+{
+    uint8_t j;
+
+    for(j = 0; j < _cols; j++)
+    {
+        if(_grid[row * _cols + j] == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+
+
 
 //------------------------------------------------------------
 //------     Extra functions for object handling    ----------
