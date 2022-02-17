@@ -60,10 +60,14 @@ void processKey(sf::Keyboard::Key keyCode)
 
         case sf::Keyboard::E:
             currentTetromino->rotateCW();
+            if(!tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0,0)))
+                currentTetromino->rotateNCW();
             break;
 
         case sf::Keyboard::Q:
             currentTetromino->rotateNCW();
+            if(!tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0,0)))
+                currentTetromino->rotateCW();           
             break;
 
         default:
