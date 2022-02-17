@@ -28,8 +28,7 @@ void generateTetromino()
 {
     uint8_t newTetrominoIndex = rand() % 7;
 
-    if(currentTetromino != NULL)
-        delete currentTetromino;
+    // TODO: find a way to use 'delete currentTetromino' without it causing a crash.
     currentTetromino = tetrominoes[newTetrominoIndex].clone();
 }
 

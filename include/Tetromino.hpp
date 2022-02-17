@@ -16,6 +16,7 @@ class Tetromino
         // Constructors
         Tetromino(void);
         Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint);
+        Tetromino(Tetromino* tetromino);
         void create(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint);
         
         // Getters & Setters

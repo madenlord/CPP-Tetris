@@ -31,6 +31,21 @@ Tetromino::Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint)
 
 
 
+Tetromino::Tetromino(Tetromino* tetromino)
+{
+    uint8_t* blocks = tetromino->getBlocks();
+    uint8_t blocksArraySize; 
+
+    _size = tetromino->getSize();
+    _currentPos = tetromino->getPosition();
+
+    blocksArraySize = _size*_size;
+    _blocks = new uint8_t(blocksArraySize);
+    std::copy(blocks, blocks+blocksArraySize, _blocks);
+}
+
+
+
 void Tetromino::create(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint)
 {
     uint8_t blocksArraySize = size*size;
@@ -215,10 +230,7 @@ void Tetromino::logTetrominoData()
 
 Tetromino* Tetromino::clone()
 {
-    Tetromino* clone = new Tetromino();
-    clone->create(_blocks, _size, _currentPos);
-
-    return clone;
+    return (new Tetromino(*this));
 }
 
 
