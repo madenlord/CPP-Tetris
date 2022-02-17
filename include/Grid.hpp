@@ -31,6 +31,7 @@ class Grid
         void integrateTetromino(Tetromino* tetromino);
         uint8_t isRowEmpty(uint8_t row);
         uint8_t isRowComplete(uint8_t row);
+        void clearRow(uint8_t row);
         void dropRow(uint8_t row, uint8_t height);
         
         // Extra functions for object handling
