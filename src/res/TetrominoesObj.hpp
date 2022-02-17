@@ -48,9 +48,9 @@ static const uint8_t ZBlock[] =
 
 static const uint8_t TBlock[] =
 {
+    0, 0, 0,
     7, 7, 7,
-    0, 7, 0,
-    0, 0, 0
+    0, 7, 0
 };
 
 extern Tetromino tetrominoes[] =
