@@ -27,7 +27,7 @@ class Grid
         uint8_t getBlock(uint8_t col, uint8_t row);
 
         // Grid functionality
-        uint8_t canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector);
+        uint8_t canTetrominoMove(Tetromino* tetromino, sf::Vector2i movVector);
         void integrateTetromino(Tetromino* tetromino);
         uint8_t isRowEmpty(uint8_t row);
         uint8_t isRowComplete(uint8_t row);

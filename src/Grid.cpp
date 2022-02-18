@@ -79,7 +79,7 @@ uint8_t Grid::getBlock(uint8_t col, uint8_t row)
 //------------------------------------------------------------
 //---------------     Grid functionality    ------------------
 //------------------------------------------------------------
-uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2u movVector)
+uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2i movVector)
 {
     uint8_t tetrominoPosX = tetromino->getPosition().x + movVector.x;
     uint8_t tetrominoPosY = tetromino->getPosition().y + movVector.y;

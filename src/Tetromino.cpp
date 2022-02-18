@@ -17,7 +17,7 @@ Tetromino::Tetromino()
 
 
 
-Tetromino::Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint)
+Tetromino::Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint)
 {
     uint8_t blocksArraySize = size*size;
 
@@ -46,7 +46,7 @@ Tetromino::Tetromino(Tetromino* tetromino)
 
 
 
-void Tetromino::create(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint)
+void Tetromino::create(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint)
 {
     uint8_t blocksArraySize = size*size;
 
@@ -109,7 +109,7 @@ void Tetromino::setSize(uint8_t size)
 }
 
 
-sf::Vector2u Tetromino::getPosition()
+sf::Vector2i Tetromino::getPosition()
 {
     return _currentPos;
 }

@@ -4,7 +4,7 @@
 static sf::RenderWindow* pwindow;
 static uint8_t blockSize;
 static uint8_t blockSeparation;
-static sf::Vector2u gridPosition;
+static sf::Vector2i gridPosition;
 static sf::Color blockColor[] = {
     sf::Color(119,119,119), sf::Color::Red, sf::Color::Green, sf::Color::Green,
     sf::Color::Magenta, sf::Color::Cyan, sf::Color::Yellow, sf::Color(180, 0, 255)
@@ -13,7 +13,7 @@ static sf::Color blockColor[] = {
 namespace tw
 {
     void windowInit(sf::RenderWindow* window, uint16_t width, uint16_t height, 
-                    uint8_t blkSize, uint8_t blkSeparation, sf::Vector2u gridPos)
+                    uint8_t blkSize, uint8_t blkSeparation, sf::Vector2i gridPos)
     {
         pwindow = window;
         window->create(sf::VideoMode(width, height), "Tetris");
@@ -57,7 +57,7 @@ namespace tw
     void drawTetromino(Tetromino* tetromino)
     {
         uint8_t i, j, tetrominoSize, blockIndex;
-        sf::Vector2u tetrominoPos = tetromino->getPosition();
+        sf::Vector2i tetrominoPos = tetromino->getPosition();
         sf::Vector2f actualPos;
         sf::RectangleShape block(sf::Vector2f(blockSize, blockSize));
 

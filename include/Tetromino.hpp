@@ -8,16 +8,16 @@
 class Tetromino 
 {
     private:
-        sf::Vector2u _currentPos;
+        sf::Vector2i _currentPos;
         uint8_t* _blocks;
         uint8_t _size;
 
     public:
         // Constructors
         Tetromino(void);
-        Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint);
+        Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint);
         Tetromino(Tetromino* tetromino);
-        void create(uint8_t* blocks, uint8_t size, sf::Vector2u spawnPoint);
+        void create(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint);
         
         // Getters & Setters
         uint8_t* getBlocks(void);
@@ -26,7 +26,7 @@ class Tetromino
         void setBlock(uint8_t x, uint8_t y, uint8_t blockIndex);
         uint8_t getSize(void);
         void setSize(uint8_t size);
-        sf::Vector2u getPosition(void);
+        sf::Vector2i getPosition(void);
         void setPosition(uint8_t x, uint8_t y);
 
         // Tetromino functionality

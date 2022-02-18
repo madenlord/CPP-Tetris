@@ -15,7 +15,7 @@ sf::Clock timer;
 void iniGame(sf::RenderWindow* window)
 {
     srand(time(NULL));
-    tw::windowInit(window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2u(180, 40));
+    tw::windowInit(window, WINDOW_WIDTH, WINDOW_HEIGHT, 40, 6, sf::Vector2i(180, 40));
     
     tetrisGrid = new Grid();
     tetrisGrid->create(GRID_COLS, GRID_ROWS);
@@ -39,17 +39,17 @@ void processKey(sf::Keyboard::Key keyCode)
     switch(keyCode)
     {
         case sf::Keyboard::A:
-            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0, -1)))
+            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2i(0, -1)))
                 currentTetromino->moveLeft();
             break;
 
         case sf::Keyboard::D:
-            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0, 1)))
+            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2i(0, 1)))
                 currentTetromino->moveRight();
             break;
 
         case sf::Keyboard::S:
-            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(1, 0)))
+            if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2i(1, 0)))
                 currentTetromino->moveDown();
             else
             {
@@ -61,13 +61,13 @@ void processKey(sf::Keyboard::Key keyCode)
 
         case sf::Keyboard::E:
             currentTetromino->rotateCW();
-            if(!tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0,0)))
+            if(!tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2i(0,0)))
                 currentTetromino->rotateNCW();
             break;
 
         case sf::Keyboard::Q:
             currentTetromino->rotateNCW();
-            if(!tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(0,0)))
+            if(!tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2i(0,0)))
                 currentTetromino->rotateCW();           
             break;
 
@@ -84,7 +84,7 @@ void checkTetrominoDrop()
     
     if(elapsedTime.asMilliseconds() >= 1000)
     {
-        if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2u(1, 0)))
+        if(tetrisGrid->canTetrominoMove(currentTetromino, sf::Vector2i(1, 0)))
             currentTetromino->moveDown();
         else
         {
