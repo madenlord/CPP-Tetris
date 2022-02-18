@@ -81,10 +81,10 @@ uint8_t Grid::getBlock(uint8_t col, uint8_t row)
 //------------------------------------------------------------
 uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2i movVector)
 {
-    uint8_t tetrominoPosX = tetromino->getPosition().x + movVector.x;
-    uint8_t tetrominoPosY = tetromino->getPosition().y + movVector.y;
+    int8_t tetrominoPosX = tetromino->getPosition().x + movVector.x;
+    int8_t tetrominoPosY = tetromino->getPosition().y + movVector.y;
     uint8_t tetrominoSize = tetromino->getSize();
-    uint8_t i, j, x, y;
+    int8_t i, j, x, y;
 
     x = 0;
     for(i = tetrominoPosX; i < (tetrominoPosX + tetrominoSize); i++)
@@ -113,10 +113,10 @@ uint8_t Grid::canTetrominoMove(Tetromino* tetromino, sf::Vector2i movVector)
 
 void Grid::integrateTetromino(Tetromino* tetromino)
 {
-    uint8_t tetrominoPosX = tetromino->getPosition().x;
-    uint8_t tetrominoPosY = tetromino->getPosition().y;
+    int8_t tetrominoPosX = tetromino->getPosition().x;
+    int8_t tetrominoPosY = tetromino->getPosition().y;
     uint8_t tetrominoSize = tetromino->getSize();
-    uint8_t i, j, x, y, block;
+    int8_t i, j, x, y, block;
 
     x = 0;
     for(i = tetrominoPosX; i < (tetrominoPosX + tetrominoSize); i++)
