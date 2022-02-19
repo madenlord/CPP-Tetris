@@ -220,6 +220,17 @@ void Tetromino::rotateNCW()
 
 
 
+void Tetromino::respawn()
+{
+    uint8_t blocksArraySize = _size * _size;
+
+    _currentPos.x = _spawnPoint.x;
+    _currentPos.y = _spawnPoint.y;
+    std::copy(_blocks, _blocks+blocksArraySize, _nonRotatedBlocks);
+}
+
+
+
 
 //------------------------------------------------------------
 //------     Extra functions for object handling    ----------

@@ -39,7 +39,7 @@ class Tetromino
         void moveDown(void);
         void rotateCW(void);
         void rotateNCW(void);
-        void drop(void);
+        void respawn(void);
 
         // Extra functions for object handling
         void logTetrominoBlocks(void);
