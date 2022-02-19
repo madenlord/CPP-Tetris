@@ -6,8 +6,8 @@ static uint8_t blockSize;
 static uint8_t blockSeparation;
 static sf::Vector2i gridPosition;
 static sf::Color blockColor[] = {
-    sf::Color(119,119,119), sf::Color::Red, sf::Color::Green, sf::Color::Green,
-    sf::Color::Magenta, sf::Color::Cyan, sf::Color::Yellow, sf::Color(180, 0, 255)
+    sf::Color(119,119,119), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+    sf::Color::Magenta, sf::Color::Cyan, sf::Color::Red, sf::Color(110, 0, 160)
 };
 
 namespace tw
