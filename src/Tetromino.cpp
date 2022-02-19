@@ -226,7 +226,7 @@ void Tetromino::respawn()
 
     _currentPos.x = _spawnPoint.x;
     _currentPos.y = _spawnPoint.y;
-    std::copy(_blocks, _blocks+blocksArraySize, _nonRotatedBlocks);
+    std::copy(_nonRotatedBlocks, _nonRotatedBlocks+blocksArraySize, _blocks);
 }
 
 

@@ -53,15 +53,15 @@ static const uint8_t TBlock[] =
     0, 7, 0
 };
 
-extern Tetromino tetrominoes[] =
+extern Tetromino* tetrominoes[] =
 {
-    Tetromino((uint8_t*)OBlock,2,sf::Vector2i(0,4)),
-    Tetromino((uint8_t*)IBlock,4,sf::Vector2i(0,3)),
-    Tetromino((uint8_t*)LBlock,3,sf::Vector2i(0,4)),
-    Tetromino((uint8_t*)JBlock,3,sf::Vector2i(0,4)),
-    Tetromino((uint8_t*)SBlock,3,sf::Vector2i(0,4)),
-    Tetromino((uint8_t*)ZBlock,3,sf::Vector2i(0,4)),
-    Tetromino((uint8_t*)TBlock,3,sf::Vector2i(0,4)),
+    new Tetromino((uint8_t*)OBlock,2,sf::Vector2i(0,4)),
+    new Tetromino((uint8_t*)IBlock,4,sf::Vector2i(0,3)),
+    new Tetromino((uint8_t*)LBlock,3,sf::Vector2i(0,4)),
+    new Tetromino((uint8_t*)JBlock,3,sf::Vector2i(0,4)),
+    new Tetromino((uint8_t*)SBlock,3,sf::Vector2i(0,4)),
+    new Tetromino((uint8_t*)ZBlock,3,sf::Vector2i(0,4)),
+    new Tetromino((uint8_t*)TBlock,3,sf::Vector2i(0,4)),
 };
 
 #endif
