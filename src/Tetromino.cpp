@@ -9,8 +9,8 @@
 //------------------------------------------------------------
 Tetromino::Tetromino()
 {
-    _currentPos.x = 0;
-    _currentPos.y = 0;
+    _spawnPoint.x = _currentPos.x = 0;
+    _spawnPoint.y = _currentPos.y = 0;
     _blocks       = NULL;
     _size         = 0;    
 }
@@ -25,8 +25,8 @@ Tetromino::Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint)
     std::copy(blocks, blocks+blocksArraySize, _blocks);
 
     _size = size;
-    _currentPos.x = spawnPoint.x;
-    _currentPos.y = spawnPoint.y;
+    _spawnPoint.x = _currentPos.x = spawnPoint.x;
+    _spawnPoint.y = _currentPos.y = spawnPoint.y;
 }
 
 
@@ -37,6 +37,7 @@ Tetromino::Tetromino(Tetromino* tetromino)
     uint8_t blocksArraySize; 
 
     _size = tetromino->getSize();
+    _spawnPoint = tetromino->getSpawnPoint();
     _currentPos = tetromino->getPosition();
 
     blocksArraySize = _size*_size;
@@ -54,8 +55,8 @@ void Tetromino::create(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint)
     std::copy(blocks, blocks+blocksArraySize, _blocks);
 
     _size = size;
-    _currentPos.x = spawnPoint.x;
-    _currentPos.y = spawnPoint.y;
+    _spawnPoint.x = _currentPos.x = spawnPoint.x;
+    _spawnPoint.x = _currentPos.y = spawnPoint.y;
 }
 
 
@@ -107,6 +108,22 @@ void Tetromino::setSize(uint8_t size)
 {
     _size = size;
 }
+
+
+
+sf::Vector2i Tetromino::getSpawnPoint()
+{
+    return _spawnPoint;
+}
+
+
+
+void Tetromino::setSpawnPoint(uint8_t x, uint8_t y)
+{
+    _spawnPoint.x = x;
+    _spawnPoint.y = y;
+}
+
 
 
 sf::Vector2i Tetromino::getPosition()
