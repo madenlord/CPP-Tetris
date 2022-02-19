@@ -9,10 +9,11 @@
 //------------------------------------------------------------
 Tetromino::Tetromino()
 {
-    _spawnPoint.x = _currentPos.x = 0;
-    _spawnPoint.y = _currentPos.y = 0;
-    _blocks       = NULL;
-    _size         = 0;    
+    _spawnPoint.x     = _currentPos.x = 0;
+    _spawnPoint.y     = _currentPos.y = 0;
+    _nonRotatedBlocks = NULL;
+    _blocks           = NULL;
+    _size             = 0;    
 }
 
 
@@ -21,7 +22,9 @@ Tetromino::Tetromino(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint)
 {
     uint8_t blocksArraySize = size*size;
 
-    _blocks = new uint8_t(blocksArraySize);
+    _nonRotatedBlocks = new uint8_t(blocksArraySize);
+    _blocks           = new uint8_t(blocksArraySize);
+    std::copy(blocks, blocks+blocksArraySize, _nonRotatedBlocks);
     std::copy(blocks, blocks+blocksArraySize, _blocks);
 
     _size = size;
@@ -41,7 +44,9 @@ Tetromino::Tetromino(Tetromino* tetromino)
     _currentPos = tetromino->getPosition();
 
     blocksArraySize = _size*_size;
+    _nonRotatedBlocks = new uint8_t(blocksArraySize);
     _blocks = new uint8_t(blocksArraySize);
+    std::copy(blocks, blocks+blocksArraySize, _nonRotatedBlocks);
     std::copy(blocks, blocks+blocksArraySize, _blocks);
 }
 
@@ -51,7 +56,9 @@ void Tetromino::create(uint8_t* blocks, uint8_t size, sf::Vector2i spawnPoint)
 {
     uint8_t blocksArraySize = size*size;
 
-    _blocks = new uint8_t(blocksArraySize);
+    _nonRotatedBlocks = new uint8_t(blocksArraySize);
+    _blocks           = new uint8_t(blocksArraySize);
+    std::copy(blocks, blocks+blocksArraySize, _nonRotatedBlocks);
     std::copy(blocks, blocks+blocksArraySize, _blocks);
 
     _size = size;
@@ -255,4 +262,5 @@ Tetromino* Tetromino::clone()
 Tetromino::~Tetromino()
 {
     delete _blocks;
+    delete _nonRotatedBlocks;
 }

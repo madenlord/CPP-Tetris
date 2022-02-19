@@ -10,6 +10,7 @@ class Tetromino
     private:
         sf::Vector2i _spawnPoint;
         sf::Vector2i _currentPos;
+        uint8_t* _nonRotatedBlocks;
         uint8_t* _blocks;
         uint8_t _size;
 
